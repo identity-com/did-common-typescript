@@ -1,3 +1,5 @@
+import { Did, DidUrl, DidUrlFragment } from './Did';
+
 /**
  * Interface defining a public key definition entry in a DID Document.
  *
@@ -7,14 +9,21 @@
  */
 export default interface IDidDocumentPublicKey {
 
-  /** Fully qualified identifier of this public key, e.g. did:example:entity.id#keys-1 */
-  id: string;
+  /**
+   * Identifier of this public key,
+   * This can be fully qualified
+   * e.g. did:example:entity.id#keys-1
+   * or a fragment e.g. #keys-1 or keys-1
+   * The DidDocument constructor will ensure this
+   * gets converted to the fully-qualified version.
+   */
+  id: DidUrl | DidUrlFragment | string;
 
   /** The type of this public key, as defined in: https://w3c-ccg.github.io/ld-cryptosuite-registry/ */
   type: string;
 
   /** The DID of the controller of this key. */
-  controller: string;
+  controller: Did;
 
   /** The value of the public key in PEM format. Only one value field will be present. */
   publicKeyPem?: string;

@@ -6,8 +6,12 @@ import IDidResolver from './IDidResolver';
 import IDidResolveResult from './IDidResolveResult';
 import HttpResolver, { HttpResolverOptions } from './resolvers/HttpResolver';
 import TestResolver from './mocks/TestResolver';
+import { Did, DidUrl, DidUrlFragment } from './Did';
 
 export {
+  Did,
+  DidUrl,
+  DidUrlFragment,
   DidDocument,
   IDidDocument,
   IDidDocumentPublicKey,

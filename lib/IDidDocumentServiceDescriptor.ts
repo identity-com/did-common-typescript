@@ -1,10 +1,12 @@
+import { DidUrl } from './Did';
+
 /**
  * Defines a service descriptor entry present in a DID Document.
  */
 export default interface IDidDocumentServiceDescriptor {
 
   /** The fully-qualified ID of this service, e.g. `did:example:me.id;agent`. */
-  id: string;
+  id: DidUrl;
 
   /** The type of this service. */
   type: string;

@@ -1,5 +1,6 @@
 import IDidDocumentServiceDescriptor from './IDidDocumentServiceDescriptor';
 import IDidDocumentPublicKey from './IDidDocumentPublicKey';
+import { Did } from './Did';
 
 /**
  * Interface describing the expected shape of a Decentralized Identity Document.
@@ -10,7 +11,7 @@ export default interface IDidDocument {
   '@context': 'https://w3id.org/did/v1';
 
   /** The DID to which this DID Document pertains. */
-  id: string;
+  id: Did;
 
   /** Array of public keys associated with the DID. */
   publicKey?: IDidDocumentPublicKey[];

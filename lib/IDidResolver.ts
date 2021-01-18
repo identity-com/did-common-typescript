@@ -1,4 +1,5 @@
 import IDidResolveResult from './IDidResolveResult';
+import { Did } from './Did';
 
 /**
  * Interface for performing various DID lookup operations.
@@ -12,6 +13,6 @@ export default interface IDidResolver {
    * @param did A fully qualified DID
    * @return A {@link DidDocument} object
    */
-  resolve (did: string): Promise<IDidResolveResult>;
+  resolve (did: Did): Promise<IDidResolveResult>;
 
 }

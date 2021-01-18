@@ -1,5 +1,6 @@
 import DidPublicKey from './IDidDocumentPublicKey';
 import IDidDocument from './IDidDocument';
+import { Did, DidUrl } from './Did';
 
 /**
  * Class for performing various DID document operations.
@@ -11,9 +12,9 @@ export default class DidDocument {
    * @param keyId A fully-qualified key ID. e.g. 'did:example:abc#key1'
    * @example 'did:example:abc#key1' returns 'did:example:abc'
    */
-  public static getDidFromKeyId (keyId: string): string {
+  public static getDidFromKeyId (keyId: string): Did {
     const didLength = keyId.indexOf('#');
-    const did = keyId.substr(0, didLength);
+    const did = keyId.substr(0, didLength) as Did;
     return did;
   }
 
@@ -21,7 +22,7 @@ export default class DidDocument {
   public context: string;
 
   /** The DID to which this DID Document pertains. */
-  public id: string;
+  public id: Did;
 
   /** Array of public keys associated with the DID */
   public publicKey: DidPublicKey[];
@@ -78,9 +79,9 @@ export default class DidDocument {
       let id = key.id;
 
       if (!id.includes('#')) {
-        id = `${this.id}#${id}`;
+        id = `${this.id}#${id}` as DidUrl;
       } else if (id.indexOf('#') === 0) {
-        id = this.id + id;
+        id = this.id + id as DidUrl;
       }
 
       return Object.assign({}, key, { id });
