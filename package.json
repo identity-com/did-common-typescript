@@ -4,6 +4,7 @@
   "description": "Common TypeScript library for decentralized identity.",
   "scripts": {
     "precommit": "npm run lint",
+    "postinstall": "npm run build",
     "build": "tsc",
     "test": "nyc jasmine-ts --config=./tests/jasmine.json",
     "lint": "tslint --fix --project .",
